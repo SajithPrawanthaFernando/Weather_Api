@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // sendHourlyReports();
 
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const authenticate = (req, res, next) => {
   const authHeader = req.headers["authorization"];
 
@@ -30,6 +35,10 @@ app.post("/user", authenticate, async (req, res) => {
 
   if (!email || !location) {
     return res.status(400).json({ error: "Email and location are required" });
+  }
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: "Invalid email format" });
   }
 
   try {
@@ -59,6 +68,10 @@ app.put("/user/:email", authenticate, async (req, res) => {
 
   if (!location) {
     return res.status(400).json({ error: "Location is required" });
+  }
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: "Invalid email format" });
   }
 
   try {
@@ -91,6 +104,10 @@ app.get("/user/:email/weather/:date", authenticate, async (req, res) => {
 
   if (email !== req.body.email) {
     return res.status(400).json({ error: "enter same email" });
+  }
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: "Invalid email format" });
   }
 
   if (date !== req.body.date) {
