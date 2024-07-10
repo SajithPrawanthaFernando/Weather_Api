@@ -107,6 +107,6 @@
 //   }
 // };
 
-// setInterval(sendHourlyReports, 2000 * 60 * 1000);
+// setInterval(sendHourlyReports, 180 * 60 * 1000);
 
 // module.exports = { sendHourlyReports };
