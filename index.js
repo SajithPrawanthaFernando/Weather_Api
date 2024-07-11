@@ -30,6 +30,24 @@ const authenticate = (req, res, next) => {
   next();
 };
 
+app.get("/", (req, res) => {
+  res.write("<h1>WEATHER API<h1>");
+  res.write("<h2>Instructions :<h2>");
+  res.write("<h2>Authentication key : authorization");
+  res.write("<h2>Authentication value : mysecrettoken");
+
+  res.write(
+    "<h2>To add users with Email and Location : http://localhost:3000/user<h2>"
+  );
+  res.write(
+    "<h2>To update users Location : http://localhost:3000/user/:email<h2>"
+  );
+  res.write(
+    "<h2>To get users previous weather data by giving a date : http://localhost:3000/user/:email/weather/:date<h2>"
+  );
+  res.send();
+});
+
 app.post("/user", authenticate, async (req, res) => {
   const { email, location } = req.body;
 

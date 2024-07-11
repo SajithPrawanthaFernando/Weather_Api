@@ -66,7 +66,6 @@
 //         }
 
 //         if (mostRecentLocation) {
-
 //           const weatherData = await getWeatherData(
 //             mostRecentLocation.locationName
 //           );
