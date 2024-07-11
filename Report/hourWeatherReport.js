@@ -1,4 +1,4 @@
-require("dotenv").config(); // Ensure you have the 'dotenv' package installed to use environment variables
+require("dotenv").config();
 const User = require("../model/User");
 const { getWeatherData } = require("../services/weatherservice");
 const { sendWeatherReport } = require("../services/emailService");
