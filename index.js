@@ -31,7 +31,7 @@ const authenticate = (req, res, next) => {
 };
 
 app.get("/", (req, res) => {
-  res.write("<h1>WEATHER API<h1>");
+  res.write("<h1>API<h1>");
   res.write("<h2>Instructions :<h2>");
   res.write("<h2>Authentication key : authorization");
   res.write("<h2>Authentication value : mysecrettoken");
